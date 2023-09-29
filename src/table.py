@@ -9,19 +9,19 @@ from prompts.base import Prompt
 
 
 def load_config():
-    return json.load(open("../data/app_config.json"))
+    return json.load(open("./data/app_config.json"))
 
 
 def load_datasets():
     # Load datasets from yaml files
     datasets = []
     # Loop over all the files in the dataset folder
-    if os.path.exists("../data/datasets"):
-        for filename in os.listdir("../data/datasets"):
-            if os.path.isdir("../data/datasets/{}".format(filename)):
+    if os.path.exists("./data/datasets"):
+        for filename in os.listdir("./data/datasets"):
+            if os.path.isdir("./data/datasets/{}".format(filename)):
                 continue
             # Open the file
-            with open("../data/datasets/{}".format(filename), "r") as f:
+            with open("./data/datasets/{}".format(filename), "r") as f:
                 # Load the dataset from the file
                 dataset = json.load(f)
                 dataset = Dataset.from_dict(dataset)
@@ -34,12 +34,12 @@ def load_data():
     # Load datasets from yaml files
     datasets = []
     # Loop over all the files in the dataset folder
-    if os.path.exists("../data/datasets"):
-        for filename in os.listdir("../data/datasets"):
-            if os.path.isdir("../data/datasets/{}".format(filename)):
+    if os.path.exists("./data/datasets"):
+        for filename in os.listdir("./data/datasets"):
+            if os.path.isdir("./data/datasets/{}".format(filename)):
                 continue
             # Open the file
-            with open("../data/datasets/{}".format(filename), "r") as f:
+            with open("./data/datasets/{}".format(filename), "r") as f:
                 # Load the dataset from the file
                 dataset = json.load(f)
                 dataset = Dataset.from_dict(dataset)
@@ -49,10 +49,10 @@ def load_data():
     # Load prompts from yaml files
     prompts = []
     # Loop over all the files in the prompt folder
-    if os.path.exists("../data/prompts"):
-        for filename in os.listdir("../data/prompts"):
+    if os.path.exists("./data/prompts"):
+        for filename in os.listdir("./data/prompts"):
             # Open the file
-            with open("../data/prompts/{}".format(filename), "r") as f:
+            with open("./data/prompts/{}".format(filename), "r") as f:
                 # Load the prompt from the file
                 prompt = json.load(f)
                 prompt = Prompt.from_dict(prompt)
@@ -137,7 +137,7 @@ def read_results():
 
         # read record
         dataset = None
-        with open("../data/datasets/{}.json".format(dataset_id), "r") as f:
+        with open("./data/datasets/{}.json".format(dataset_id), "r") as f:
             # Load the dataset from the file
             dataset = json.load(f)
             dataset = Dataset.from_dict(dataset)
